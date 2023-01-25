@@ -8,7 +8,7 @@ This code is just an example proof of concept. Any Nostr client could easily imp
 
 ## How does it work?
 * User adds an xpub to their Nostr client.
-* Nostr client generates a new PK that will be its NostrPayDM bot account.
+* Nostr client generates a new Nostr PK that will be its NostrPayDM bot account.
 * User publishes the npub of their NostrPayDM bot.
   * (perhaps as part of their Nostr metadata, ala `lnurl`)
 * Donors DM the NostrPayDM bot for a new on-chain address.
@@ -25,8 +25,10 @@ This code is just an example proof of concept. Any Nostr client could easily imp
 * No server requirements. Just need it built into a Nostr client.
 
 
-## Overview
-Python script runs on an internet-connected device. But it's a "pull" model where it periodically checks for new incoming Nostr DMs.
+---
+
+## Demo implementation
+This demo has to be run on an internet-connected device that can run python. The ideal implementation of this idea is directly inside a Nostr client app.
 
 
 ## Setup
@@ -38,3 +40,15 @@ cd nostrpaydm
 pip install virtualenv
 virtualenv .env
 source .env/bin/activate
+pip install -r requirements.txt
+
+# Currently requires the 'dev' branch of my fork of python-nostr
+git clone https://github.com/kdmukai/python-nostr.git
+cd python-nostr
+git checkout dev
+pip install -e .
+cd ..
+
+cd src
+python main.py
+```
