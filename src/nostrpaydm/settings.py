@@ -14,6 +14,7 @@ class Settings:
     LAST_DM_PROCESSED = "last_dm_processed"
     BITCOIN_XPUB = "bitcoin_xpub"
     CHILD_INDEX = "child_index"
+    CAMPAIGN_MESSAGE = "campaign_message"
 
 
     # class instance fields
@@ -67,6 +68,11 @@ class Settings:
     def last_dm_processed(self) -> int:
         """ The Event.created_at timestamp of the most recent incoming DM processed """
         return self._settings.get(Settings.LAST_DM_PROCESSED)
+    
+
+    @property
+    def campaign_message(self) -> str:
+        return self._settings.get(Settings.CAMPAIGN_MESSAGE)
 
 
     @property

@@ -104,7 +104,7 @@ class NostrPayDM:
             # User requested a new onchain addr
             cleartext_content = self.get_next_address()
         else:
-            cleartext_content = """I'm a simple bot.\n\nIf you want an onchain payment address, just DM me the word: "address" """
+            cleartext_content = self.settings.campaign_message + """\n\nIf you'd like to make an onchain donation, just DM me the word: "address" """
         self.send_dm(recipient_pubkey=event.public_key, event_id=event.id, cleartext_content=cleartext_content)
         
         if self.settings.last_dm_processed is None or self.settings.last_dm_processed < event.created_at:
