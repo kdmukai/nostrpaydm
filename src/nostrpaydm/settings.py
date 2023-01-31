@@ -13,6 +13,7 @@ class Settings:
     NOSTR_RELAYS = "relays"
     LAST_DM_PROCESSED = "last_dm_processed"
     BITCOIN_XPUB = "bitcoin_xpub"
+    LNURL = "lnurl"
     CHILD_INDEX = "child_index"
     CAMPAIGN_MESSAGE = "campaign_message"
 
@@ -78,6 +79,11 @@ class Settings:
     @property
     def bitcoin_xpub(self) -> str:
         return self._settings.get(Settings.BITCOIN_XPUB)
+
+
+    @property
+    def lnurl(self) -> str:
+        return self._settings.get(Settings.LNURL)
 
 
     @property
